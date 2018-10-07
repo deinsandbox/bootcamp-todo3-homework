@@ -1,0 +1,19 @@
+<div *ngFor="let task of tasks; let index = index">
+  <article *ngIf="(filter === statusEnum.All || filter === statusEnum.Active) && (task.status === false)">
+    <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+  </article>
+  <article *ngIf="(filter === statusEnum.All || filter === statusEnum.Completed) && (task.status === true)">
+    <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+  </article>
+
+  <ng-template #itemTemplate>
+    <input type="checkbox"
+      id="check-{{index}}"
+      [checked]="task.status"
+      (change)="onChangeTask(index)">
+    <label for="check-{{index}}"
+      ngClass="{{ (task.status === true) ? 'task-completed' : '' }}">
+      {{ task.detail }}</label>
+    <button (click)="onRemoveTask(task)">X</button>
+  </ng-template>
+</div>

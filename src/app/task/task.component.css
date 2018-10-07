@@ -1,0 +1,9 @@
+article {
+  border: 1px solid blue;
+  padding: .5rem;
+}
+
+.status-complete {
+  text-decoration: line-through;
+  font-style: italic;
+}
