@@ -60,6 +60,8 @@ export class AppComponent {
   onClearCompleted(): void {
     this.tasks = this.tasks.filter((task) => task.status === false);
     this.onFilter(this.filter);
-    this.filter = Status.All;
+    if (this.tasks.length <= 0) {
+      this.filter = Status.All;
+    }
   }
 }

@@ -56,7 +56,7 @@
         </button>
         <button type="button"
           class="btn btn-danger"
-          *ngIf="filter === statusEnum.Completed && tasks.length > 0"
+          *ngIf="(tasks | count:true) > 0"
           (click)="onClearCompleted()">Delete completed</button>
       </div>
     </div>
