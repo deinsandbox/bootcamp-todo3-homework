@@ -7,7 +7,8 @@
   </article>
 
   <ng-template #itemTemplate>
-    <div class="input-group mb-1">
+    <div class="input-group mb-1"
+      (dblclick)="onDisabledTask(index)">
       <div class="input-group-prepend">
         <div class="input-group-text">
           <input type="checkbox"
@@ -20,6 +21,7 @@
         class="form-control"
         ngClass="{{ (task.status === true) ? 'status-complete' : '' }}"
         [value]="task.detail"
+        [disabled]="task.disabled"
         (keyup.enter)="task.detail = $event.target.value; onEditTask(task)"
         (blur)="task.detail = $event.target.value; onEditTask(task)">
       <div class="input-group-append">

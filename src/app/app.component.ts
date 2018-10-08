@@ -29,16 +29,25 @@ export class AppComponent {
     if (task.detail === '') {
       this.onRemoveTask(task);
     } else {
-      this.tasks[task.id].detail = task.detail;
+      const element = this.tasks[task.id];
+      element.detail = task.detail;
+      element.disabled = true;
     }
   }
 
   onChangeTask(index: number): void {
-    this.tasks[index].status = !this.tasks[index].status;
+    const element = this.tasks[index];
+    element.status = !element.status;
+    element.disabled = true;
   }
 
   onToggleTasks(status: boolean): void {
     this.tasks.map((task) => (task.status = status));
+  }
+
+  onDisabledTask(index: number): void {
+    this.tasks.map((task) => (task.disabled = true));
+    this.tasks[index].disabled = false;
   }
 
   onAddTask(input: HTMLInputElement): void {
@@ -47,6 +56,7 @@ export class AppComponent {
         id: this.tasks.length,
         status: false,
         detail: input.value,
+        disabled: true,
       };
       this.tasks.push(task);
       input.value = '';
