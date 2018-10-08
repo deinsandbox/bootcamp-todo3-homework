@@ -7,13 +7,26 @@
   </article>
 
   <ng-template #itemTemplate>
-    <input type="checkbox"
-      id="check-{{index}}"
-      [checked]="task.status"
-      (change)="onChangeTask(index)">
-    <label for="check-{{index}}"
-      ngClass="{{ (task.status === true) ? 'task-completed' : '' }}">
-      {{ task.detail }}</label>
-    <button (click)="onRemoveTask(task)">X</button>
+    <div class="input-group mb-1">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <input type="checkbox"
+            id="check-{{index}}"
+            [checked]="task.status"
+            (change)="onChangeTask(index)">
+        </div>
+      </div>
+      <input type="text"
+        class="form-control"
+        ngClass="{{ (task.status === true) ? 'status-complete' : '' }}"
+        [value]="task.detail"
+        (keyup.enter)="onEditTask(task)">
+      <div class="input-group-append">
+        <button class="btn btn-danger"
+          type="button"
+          id="check-{{index}}"
+          (click)="onRemoveTask(task)">X</button>
+      </div>
+    </div>
   </ng-template>
 </div>

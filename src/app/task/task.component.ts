@@ -15,6 +15,8 @@ export class TaskComponent implements OnInit {
   @Output()
   removeTask = new EventEmitter<Task>();
   @Output()
+  editTask = new EventEmitter<Task>();
+  @Output()
   changeTask = new EventEmitter<number>();
 
   statusEnum: typeof Status = Status;
@@ -25,6 +27,10 @@ export class TaskComponent implements OnInit {
 
   onRemoveTask(task: Task) {
     this.removeTask.emit(task);
+  }
+
+  onEditTask(task: Task) {
+    this.editTask.emit(task);
   }
 
   onChangeTask(index: number) {

@@ -25,22 +25,31 @@ export class AppComponent {
     this.tasks = this.tasks.filter((task) => task.id !== id);
   }
 
+  onEditTask({ id, detail }): void {
+    if (!detail) {
+      this.onRemoveTask(id);
+    } else {
+      this.tasks[id].detail = detail;
+    }
+  }
+
   onChangeTask(index: number): void {
     this.tasks[index].status = !this.tasks[index].status;
   }
 
   onToggleTasks(status: boolean): void {
-    this.tasks.map(task => task.status = status);
+    this.tasks.map((task) => (task.status = status));
   }
 
-  onAddTask(detail: string): void {
-    if (detail) {
+  onAddTask(input: HTMLInputElement): void {
+    if (input.value) {
       const task: Task = {
-        id: this.tasks.length + 1,
+        id: this.tasks.length - 1,
         status: false,
-        detail: detail,
+        detail: input.value,
       };
       this.tasks.push(task);
+      input.value = '';
     }
   }
 

@@ -1,22 +1,64 @@
-<div>
-  <input type="checkbox"
-    (change)="onToggleTasks($event.target.checked)">
-  <input type="text"
-    (keyup.enter)="onAddTask($event.target.value)"
-    placeholder="What's need to be done?">
-</div>
-<section>
-  <app-task [tasks]="tasks"
-    [filter]="filter"
-    (removeTask)="onRemoveTask($event)"
-    (changeTask)="onChangeTask($event)">
-  </app-task>
-</section>
-<div>
-  Filter
-  <button (click)="onFilter(statusEnum.All)">All</button>
-  <button (click)="onFilter(statusEnum.Active)">[{{ tasks | count }}] Active</button>
-  <button (click)="onFilter(statusEnum.Completed)">[{{ tasks | count:true }}] Completed</button>
-  <button *ngIf="filter===statusEnum.Completed"
-    (click)="onClearCompleted()">Delete completed</button>
+<div class="card">
+  <h5 class="card-header text-center">{{ title | uppercase }}</h5>
+  <div class="card-body">
+    <div class="input-group mb-1">
+      <div class="input-group-prepend"
+        *ngIf="tasks.length > 0">
+        <div class="input-group-text">
+          <input type="checkbox"
+            (change)="onToggleTasks($event.target.checked)">
+        </div>
+      </div>
+      <input type="text"
+        #taskInput
+        class="form-control"
+        (keyup.enter)="onAddTask(taskInput)"
+        placeholder="What's need to be done?">
+    </div>
+    <hr />
+    <app-task [tasks]="tasks"
+      [filter]="filter"
+      (removeTask)="onRemoveTask($event)"
+      (editTask)="onEditTask($event)"
+      (changeTask)="onChangeTask($event)">
+    </app-task>
+  </div>
+  <div class="card-footer">
+    <div class="btn-toolbar"
+      role="toolbar">
+      <div class="btn-group mr-2"
+        role="group">
+        <button type="button"
+          class="btn btn-footer"
+          ngClass="{{ (filter === statusEnum.All) ? 'btn-primary' : 'btn-outline-primary' }}"
+          (click)="onFilter(statusEnum.All)">All</button>
+      </div>
+      <div class="btn-group mr-2"
+        role="group">
+        <button type="button"
+          class="btn"
+          ngClass="{{ (filter === statusEnum.Active) ? 'btn-primary' : 'btn-outline-primary' }}"
+          (click)="onFilter(statusEnum.Active)">
+          Active
+          <span class="badge"
+            ngClass="{{ (filter === statusEnum.Active) ? 'badge-light' : ' badge-primary' }}">{{ tasks | count }}</span>
+        </button>
+      </div>
+      <div class="btn-group mr-2"
+        role="group">
+        <button type="button"
+          class="btn"
+          ngClass="{{ (filter === statusEnum.Completed) ? 'btn-primary' : 'btn-outline-primary' }}"
+          (click)="onFilter(statusEnum.Completed)">
+          Completed
+          <span class="badge"
+            ngClass="{{ (filter === statusEnum.Completed) ? ' badge-light' : ' badge-primary' }}">{{ tasks | count:true }}</span>
+        </button>
+        <button type="button"
+          class="btn btn-danger"
+          *ngIf="filter === statusEnum.Completed && tasks.length > 0"
+          (click)="onClearCompleted()">Delete completed</button>
+      </div>
+    </div>
+  </div>
 </div>
