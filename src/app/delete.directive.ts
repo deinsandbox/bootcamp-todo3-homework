@@ -7,12 +7,12 @@ export class DeleteDirective {
   @HostListener('mouseenter')
   onmouseenter() {
     const element = this.elementRef.nativeElement;
-    element.lastElementChild.style.display = null;
+    element.lastElementChild.classList.remove('d-none');
   }
   @HostListener('mouseleave')
   onmouseleave() {
     const element = this.elementRef.nativeElement;
-    element.lastElementChild.style.display = 'none';
+    element.lastElementChild.classList.add('d-none');
   }
 
   constructor(private elementRef: ElementRef) {}
