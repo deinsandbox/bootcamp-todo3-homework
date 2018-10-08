@@ -1,0 +1,17 @@
+{
+    "recommendations": [
+        "mikael.angular-beastcode", //Angular 6 Snippets - TypeScript, Html, Angular Material, ngRx, RxJS & Flex Layout
+        "angular.ng-template", //Angular Language Service,
+        "natewallace.angular2-inline", //angular2-inline
+        "infinity1207.angular2-switcher", //angular2-switcher
+        "thekalinga.bootstrap4-vscode", //Bootstrap 4, Font awesome 4, Font Awesome 5 Free & Pro snippets
+        "wix.vscode-import-cost", //Import Cost
+        "tanato.vscode-gulp", //Gulp Snippets
+        "donjayamanne.jquerysnippets", //jQuery Code Snippets
+        "telerik.nativescript", //NativeScript
+        "quicktype.quicktype", //Paste JSON as Code
+        "eg2.tslint", //TSLint
+        "octref.vetur", //Vetur
+        "simontest.simontest", //SimonTest
+    ]
+}
