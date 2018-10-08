@@ -67,7 +67,8 @@
             "*ngFor",
             "ngFor",
             "ngSwitch",
-            "ngModel"
+            "ngModel",
+            "*ngTemplateOutlet",
         ],
         "doctype-first": false
     },

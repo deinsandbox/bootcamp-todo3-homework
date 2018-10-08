@@ -25,11 +25,11 @@ export class AppComponent {
     this.tasks = this.tasks.filter((task) => task.id !== id);
   }
 
-  onEditTask({ id, detail }): void {
-    if (!detail) {
-      this.onRemoveTask(id);
+  onEditTask(task: Task): void {
+    if (task.detail === '') {
+      this.onRemoveTask(task);
     } else {
-      this.tasks[id].detail = detail;
+      this.tasks[task.id].detail = task.detail;
     }
   }
 
@@ -44,7 +44,7 @@ export class AppComponent {
   onAddTask(input: HTMLInputElement): void {
     if (input.value) {
       const task: Task = {
-        id: this.tasks.length - 1,
+        id: this.tasks.length,
         status: false,
         detail: input.value,
       };
@@ -60,5 +60,6 @@ export class AppComponent {
   onClearCompleted(): void {
     this.tasks = this.tasks.filter((task) => task.status === false);
     this.onFilter(this.filter);
+    this.filter = Status.All;
   }
 }
