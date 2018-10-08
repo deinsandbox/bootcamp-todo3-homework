@@ -13,7 +13,8 @@
         #taskInput
         class="form-control"
         (keyup.enter)="onAddTask(taskInput)"
-        placeholder="What's need to be done?">
+        placeholder="What's need to be done?"
+        (focusin)="onDisableAllTasks()">
     </div>
     <hr />
     <app-task [tasks]="tasks"
@@ -58,7 +59,7 @@
         <button type="button"
           class="btn btn-danger"
           *ngIf="(tasks | count:true) > 0"
-          (click)="onClearCompleted()">Delete completed</button>
+          (click)="onClearCompleted()">Delete</button>
       </div>
     </div>
   </div>

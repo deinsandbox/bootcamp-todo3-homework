@@ -46,8 +46,12 @@ export class AppComponent {
   }
 
   onDisabledTask(index: number): void {
-    this.tasks.map((task) => (task.disabled = true));
+    this.onDisableAllTasks();
     this.tasks[index].disabled = false;
+  }
+
+  onDisableAllTasks(): void {
+    this.tasks.map((task) => (task.disabled = true));
   }
 
   onAddTask(input: HTMLInputElement): void {

@@ -24,7 +24,7 @@
         [value]="task.detail"
         [disabled]="task.disabled"
         (keyup.enter)="task.detail = $event.target.value; onEditTask(task)"
-        (blur)="task.detail = $event.target.value; onEditTask(task)">
+        (focusout)="task.detail = $event.target.value; onEditTask(task)">
       <div class="input-group-append d-none">
         <button class="btn btn-danger"
           type="button"
