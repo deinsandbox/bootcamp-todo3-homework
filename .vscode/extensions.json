@@ -1,5 +1,20 @@
 {
     "recommendations": [
+        "alefragnani.bookmarks", //Bookmarks
+        "CoenraadS.bracket-pair-colorizer", //Bracket Pair Colorizer
+        "streetsidesoftware.code-spell-checker", //Code Spell Checker
+        "streetsidesoftware.code-spell-checker-spanish", //Spanish - Code Spell Checker
+        "ryanluker.vscode-coverage-gutters", //Coverage Gutters
+        "waderyan.gitblame", //Git Blame
+        "codezombiech.gitignore", //gitignore
+        "GitHub.vscode-pull-request-github", //GitHub Pull Request
+        "oderwat.indent-rainbow", //Indent Rainbow
+        "davidanson.vscode-markdownlint", //markdownlint
+        "shan.code-settings-sync", //Settings Sync
+        "wayou.vscode-todo-highlight", //TODO Highlight
+        "pflannery.vscode-versionlens", //Version Lens
+        "jrebocho.vscode-random", //vscode-random
+        "dotjoshjohnson.xml", //XML Tools
         "mikael.angular-beastcode", //Angular 6 Snippets - TypeScript, Html, Angular Material, ngRx, RxJS & Flex Layout
         "angular.ng-template", //Angular Language Service,
         "natewallace.angular2-inline", //angular2-inline
