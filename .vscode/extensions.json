@@ -8,6 +8,7 @@
         "wix.vscode-import-cost", //Import Cost
         "tanato.vscode-gulp", //Gulp Snippets
         "donjayamanne.jquerysnippets", //jQuery Code Snippets
+        "ktriek.ng-bootstrap-snippets", //NgBootstrap Snippets
         "telerik.nativescript", //NativeScript
         "quicktype.quicktype", //Paste JSON as Code
         "eg2.tslint", //TSLint
