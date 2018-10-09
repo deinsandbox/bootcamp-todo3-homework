@@ -6,7 +6,8 @@
         *ngIf="tasks.length > 0">
         <div class="input-group-text">
           <input type="checkbox"
-            (change)="onToggleTasks($event.target.checked)">
+            (change)="onToggleTasks($event.target.checked)"
+            [checked]="tasks.length === (tasks | count:true)">
         </div>
       </div>
       <input type="text"

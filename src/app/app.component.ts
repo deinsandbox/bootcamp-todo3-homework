@@ -42,7 +42,9 @@ export class AppComponent {
   }
 
   onToggleTasks(status: boolean): void {
-    this.tasks.map((task) => (task.status = status));
+    this.tasks.forEach((task) => {
+      task.status = status;
+    });
   }
 
   onDisabledTask(index: number): void {
@@ -51,13 +53,15 @@ export class AppComponent {
   }
 
   onDisableAllTasks(): void {
-    this.tasks.map((task) => (task.disabled = true));
+    this.tasks.forEach((task) => {
+      task.disabled = true;
+    });
   }
 
   onAddTask(input: HTMLInputElement): void {
     if (input.value) {
       const task: Task = {
-        id: this.tasks.length,
+        id: new Date().valueOf(),
         status: false,
         detail: input.value,
         disabled: true,
