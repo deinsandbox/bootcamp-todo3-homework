@@ -3,15 +3,15 @@ import { Task } from './task.interface';
 const TASKS: Task[] = [
   {
     id: 0,
-    status: true,
+    isCompleted: true,
     detail: 'Make video 3 homework',
-    disabled: true,
+    isDisabled: true,
   },
   {
     id: 1,
-    status: false,
+    isCompleted: false,
     detail: 'Share your code',
-    disabled: true,
+    isDisabled: true,
   },
 ];
 

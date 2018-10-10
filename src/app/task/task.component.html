@@ -1,8 +1,8 @@
 <div *ngFor="let task of tasks; let index = index">
-  <article *ngIf="(filter === statusEnum.All || filter === statusEnum.Active) && (task.status === false)">
+  <article *ngIf="(filter === statusEnum.All || filter === statusEnum.Active) && (task.isCompleted === false)">
     <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
   </article>
-  <article *ngIf="(filter === statusEnum.All || filter === statusEnum.Completed) && (task.status === true)">
+  <article *ngIf="(filter === statusEnum.All || filter === statusEnum.Completed) && (task.isCompleted === true)">
     <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
   </article>
 
@@ -14,15 +14,15 @@
         <div class="input-group-text">
           <input type="checkbox"
             id="check-{{index}}"
-            [checked]="task.status"
+            [checked]="task.isCompleted"
             (change)="onChangeTask(index)">
         </div>
       </div>
       <input type="text"
         class="form-control"
-        ngClass="{{ (task.status === true) ? 'status-complete' : '' }}"
+        ngClass="{{ (task.isCompleted === true) ? 'status-complete' : '' }}"
         [value]="task.detail"
-        [disabled]="task.disabled"
+        [disabled]="task.isDisabled"
         (keyup.enter)="task.detail = $event.target.value; onEditTask(task)"
         (focusout)="task.detail = $event.target.value; onEditTask(task)">
       <div class="input-group-append d-none">

@@ -31,30 +31,30 @@ export class AppComponent {
     } else {
       const element = this.tasks[task.id];
       element.detail = task.detail;
-      element.disabled = true;
+      element.isDisabled = true;
     }
   }
 
   onChangeTask(index: number): void {
     const element = this.tasks[index];
-    element.status = !element.status;
-    element.disabled = true;
+    element.isCompleted = !element.isCompleted;
+    element.isDisabled = true;
   }
 
   onToggleTasks(status: boolean): void {
     this.tasks.forEach((task) => {
-      task.status = status;
+      task.isCompleted = status;
     });
   }
 
   onDisabledTask(index: number): void {
     this.onDisableAllTasks();
-    this.tasks[index].disabled = false;
+    this.tasks[index].isDisabled = false;
   }
 
   onDisableAllTasks(): void {
     this.tasks.forEach((task) => {
-      task.disabled = true;
+      task.isDisabled = true;
     });
   }
 
@@ -62,9 +62,9 @@ export class AppComponent {
     if (input.value) {
       const task: Task = {
         id: new Date().valueOf(),
-        status: false,
+        isCompleted: false,
         detail: input.value,
-        disabled: true,
+        isDisabled: true,
       };
       this.tasks.push(task);
       input.value = '';
@@ -76,7 +76,7 @@ export class AppComponent {
   }
 
   onClearCompleted(): void {
-    this.tasks = this.tasks.filter((task) => task.status === false);
+    this.tasks = this.tasks.filter((task) => task.isCompleted === false);
     this.onFilter(this.filter);
     if (this.tasks.length <= 0) {
       this.filter = Status.All;

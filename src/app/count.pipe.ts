@@ -7,6 +7,6 @@ import { Task } from './task/task.interface';
 })
 export class CountPipe implements PipeTransform {
   transform(tasks: Task[], status: boolean = false): number {
-    return tasks.filter((task) => task.status === status).length;
+    return tasks.filter((task) => task.isCompleted === status).length;
   }
 }

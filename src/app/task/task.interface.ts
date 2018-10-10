@@ -1,6 +1,6 @@
 export interface Task {
   id: number;
-  status: boolean;
+  isCompleted: boolean;
   detail: string;
-  disabled: boolean;
+  isDisabled: boolean;
 }
